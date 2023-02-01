@@ -1,0 +1,13 @@
+.card-bottom{
+    margin-bottom: 15px;
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.fit-all {
+  max-height: 10em;
+  object-fit: scale-down;
+}

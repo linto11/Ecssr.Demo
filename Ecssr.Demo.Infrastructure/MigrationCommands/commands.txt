@@ -1,0 +1,2 @@
+﻿dotnet ef migrations add InitialCreate --project Ecssr.Demo.Infrastructure --startup-project Ecssr.Demo
+dotnet ef database update --project Ecssr.Demo.Infrastructure --startup-project Ecssr.Demo

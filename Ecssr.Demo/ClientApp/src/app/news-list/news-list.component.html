@@ -1,0 +1,60 @@
+<h1>News Listing</h1>
+
+<p>This is a simple example of an Angular component with listing.</p>
+
+<div class="spinner-border text-danger" role="status" *ngIf="isLoading">
+  <span class="sr-only"></span>
+</div>
+
+<div class="row">
+  <div class="alert alert-danger" role="alert" *ngIf="fetchNewsFailed">
+    {{message}}
+  </div>
+</div>
+<div *ngIf="fetchNewsSuccess">
+  <div class="row">
+    <div class="col-lg-3 d-flex align-items-stretch" *ngFor="let newsItem of news; let index = index">
+      <div class="card card-bottom">
+        <img [src]="getImage(newsItem.imageUrl)" class="card-img-top fit-all" alt="...">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{newsItem.title}}</h5>
+          <p class="card-text d-inline-block text-truncate">{{newsItem.brief}}</p>
+          <a href="javascript:void(0)" class="btn btn-primary mt-auto" (click)="showDetails(newsItem.id)">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-1 col-md-1 col-form-label">Select Page:</label>
+        <div class="col-sm-1 col-md-1 ">
+          <select class="form-select select-scroll" aria-label="Select page" [(ngModel)]="currentPageNumber" (ngModelChange)="openPage($event)">
+            <option value="{{pageNumber}}" *ngFor="let pageNumber of pageNumbers; let index=index">
+              {{pageNumber}}
+            </option>
+          </select>
+        </div>
+        <label for="staticEmail" class="col-sm-3 col-md-4  col-form-label">
+          Showing page {{pagination.currentPage}} of {{pagination.pageCount}}
+        </label>
+        <nav aria-label="Page navigation example" class="col-sm-3 col-md-6  col-form-label">
+          <ul class="pagination float-end">
+            <li class="page-item">
+              <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="previousPage()" [ngClass]="{'disabled' : pagination.currentPage < 2}">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only"></span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="javascript:void(0)" aria-label="Next" (click)="nextPage()" [ngClass]="{'disabled' : pagination.currentPage == pagination.pageCount}">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

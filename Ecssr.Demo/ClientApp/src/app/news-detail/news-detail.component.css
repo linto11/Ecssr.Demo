@@ -1,0 +1,43 @@
+.card-header {
+  max-height: 25em;
+  padding: 0px;
+}
+
+.card {
+  padding: 0px;
+}
+
+.pagination {
+  margin-bottom: 0px;
+}
+
+.btn-light .badge {
+  color: #337ab7;
+  background-color: #fff;
+}
+
+.badge {
+  font-size: 1em;
+}
+
+.card-bottom {
+  margin-bottom: 15px;
+}
+
+.btn-space-top {
+  margin-top: 5px;
+}
+
+.fit-img {
+  object-fit: scale-down;
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.position-loader {
+  margin-left: 5px !important;
+  margin-top: 5px !important;
+}

@@ -1,0 +1,74 @@
+<div class="spinner-border text-danger" role="status" *ngIf="isLoading">
+  <span class="sr-only"></span>
+</div>
+
+<div class="row">
+  <div class="alert alert-danger" role="alert" *ngIf="fetchNewsFailed">
+    {{message}}
+  </div>
+</div>
+
+<div *ngIf="fetchNewsSuccess">
+  <div class="row">
+    <div class="card">
+      <img [src]="getImage(newsDetail.imageUrl)" class="card-img-top card-header fit-img" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{newsDetail.title}}</h5>
+        <p class="card-text" [ngStyle]="{'font-size': fontSize+'px'}">{{newsDetail.detail}}</p>
+        <nav aria-label="" class="col-md-12  col-form-label">
+          <ul class="pagination float-end">
+            <li class="page-item">
+              <a class="page-link" href="javascript:void(0)" aria-label="Zoom Out" (click)="decreaseFont()" [ngClass]="{'disabled' : fontSize < minFontSize}">
+                <span aria-hidden="true">-</span>
+                <span class="sr-only"></span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="javascript:void(0)" aria-label="Zoom In" (click)="increaseFont()" [ngClass]="{'disabled' : fontSize > maxFontSize}">
+                <span aria-hidden="true">+</span>
+                <span class="sr-only"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="row card-bottom">
+          <div class="col-md-4">
+            <a href="javascript:void(0)" class="btn btn-primary d-flex justify-content-center btn-space-top" (click)="downloadNews('a4Pdf')"
+               [ngClass]="{'disabled' : showA4DownloadLoader}">
+              Download A4 PDF
+              <span class="spinner-border spinner-border-sm position-loader" role="status" aria-hidden="true" *ngIf="showA4DownloadLoader"></span>
+              <span class="sr-only"></span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="javascript:void(0)" class="btn btn-primary d-flex justify-content-center btn-space-top" (click)="downloadNews('mobilePdf')" [ngClass]="{'disabled' : showMobilePdfDownloadLoader}">
+              Download Mobile PDF
+              <span class="spinner-border spinner-border-sm position-loader" role="status" aria-hidden="true" *ngIf="showMobilePdfDownloadLoader"></span>
+              <span class="sr-only"></span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="javascript:void(0)" class="btn btn-primary d-flex justify-content-center btn-space-top" (click)="downloadNews('mobileImage')" [ngClass]="{'disabled' : showMobileImageDownloadLoader}">
+              Download Mobile Image
+              <span class="spinner-border spinner-border-sm position-loader" role="status" aria-hidden="true" *ngIf="showMobileImageDownloadLoader"></span>
+              <span class="sr-only"></span>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <a href="javascript:void(0)" class="btn btn-light d-flex justify-content-center">Total A4 PDF Downloads&nbsp;&nbsp;<span class="badge">{{a4PdfDownloadCount}}</span></a>
+          </div>
+          <div class="col-md-4">
+            <a href="javascript:void(0)" class="btn btn-light d-flex justify-content-center">Total Mobile PDF Downloads&nbsp;&nbsp;<span class="badge">{{mobilePdfDownloadCount}}</span></a>
+          </div>
+          <div class="col-md-4">
+            <a href="javascript:void(0)" class="btn btn-light d-flex justify-content-center">Total Mobile Image Downloads&nbsp;&nbsp;<span class="badge">{{mobileImageDownloadCount}}</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
