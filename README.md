@@ -26,10 +26,10 @@ This is a demo application for the ECSSR Team
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Ecssr Demo Main Screen Shot][product-screenshot]]
+[product-screenshot]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: Ecssr.Demo/wwwroot/screenshot/ss1.png
+[product-screenshot]: Ecssr.Demo/wwwroot/screenshot/SS1.png
